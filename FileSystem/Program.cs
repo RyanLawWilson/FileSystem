@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
+using FileSystem.Comms;
 
 namespace FileSystem
 {
@@ -7,15 +9,19 @@ namespace FileSystem
     {
         static void Main(string[] args)
         {
+            List<Command> comms = Commands.InitCommands();
+
             pln("Welcome to the file system");
             Thread.Sleep(1000);
 
             pln();
             pln("For a list of commands, type 'help'");
 
-
-
-
+            string input = Console.ReadLine();
+            while (input != "exit" || input != "Exit")
+            {
+                
+            }
 
             Console.Read();
         }
