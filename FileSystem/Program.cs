@@ -9,7 +9,8 @@ namespace FileSystem
     {
         static void Main(string[] args)
         {
-            List<Command> comms = Commands.InitCommands();
+            FileSystem sys = new FileSystem();
+            sys.InitCommands();
 
             pln("Welcome to the file system");
             Thread.Sleep(1000);
@@ -20,7 +21,9 @@ namespace FileSystem
             string input = Console.ReadLine();
             while (input != "exit" || input != "Exit")
             {
-                Commands.ExecuteCommand(input);
+                sys.ExecuteCommand(input);
+
+                input = Console.ReadLine();
             }
 
             Console.Read();
