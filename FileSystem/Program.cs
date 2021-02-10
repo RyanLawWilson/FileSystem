@@ -20,7 +20,7 @@ namespace FileSystem
             string input = Console.ReadLine();
             while (input != "exit" || input != "Exit")
             {
-                
+                Commands.ExecuteCommand(input);
             }
 
             Console.Read();
