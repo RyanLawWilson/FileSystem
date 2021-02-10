@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace FileSystem
 {
@@ -6,7 +7,53 @@ namespace FileSystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            pln("Welcome to the file system");
+            Thread.Sleep(1000);
+
+            pln();
+            pln("For a list of commands, type 'help'");
+
+
+
+
+
+            Console.Read();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        static void pln(string s = "")
+        {
+            Console.WriteLine(">> " + s);
+        }
+
+        static void p(string s = "")
+        {
+            Console.Write(">> ");
         }
     }
 }
