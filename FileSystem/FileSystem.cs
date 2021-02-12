@@ -7,19 +7,21 @@ namespace FileSystem
 {
     public class FileSystem
     {
-        public List<FileSystemObject> objects { get; set; }
-
-        public List<Command> commands { get; set; }
-
-        // The folder that you are currently looking in.  Any added or removed folders will be created/removed from this folder.
-        // The place where the command will be executed.
-        public Folder activeFolder { get; set; }
-
         public FileSystem()
         {
             InitCommands();
             InitFileSystem();
         }
+
+        public List<FileSystemObject> FileSystemObjects { get; set; }
+
+        public List<Command> Commands { get; set; }
+
+        // The folder that you are currently looking in.  Any added or removed folders will be created/removed from this folder.
+        // The place where the command will be executed.
+        public Folder ActiveFolder { get; set; }
+
+        
 
         
 
@@ -47,7 +49,7 @@ namespace FileSystem
         /// </summary>
         private void InitCommands()
         {
-            commands = new List<Command>()
+            Commands = new List<Command>()
             {
                 new Command("add", "Add", "Adds a file or folder to the file system based on the name provided"),
                 new Command("rem", "Remove", "Remove a file or folder that matches the name provided")
@@ -61,19 +63,19 @@ namespace FileSystem
         {
             Folder documents = new Folder("Documents");
 
-            activeFolder = documents;
+            ActiveFolder = documents;
 
-            documents.objects = new List<FileSystemObject>()
+            documents.ContainedObjects = new List<FileSystemObject>()
             {
                 new Folder()
                 {
-                    name = "School",
-                    prevFolder = documents
+                    Name = "School",
+                    ParentFolder = documents
                 },
                 new Folder()
                 {
-                    name = "Work",
-                    prevFolder = documents
+                    Name = "Work",
+                    ParentFolder = documents
                 }
             };
 
@@ -91,21 +93,21 @@ namespace FileSystem
 
 
 
-            objects = new List<FileSystemObject>()
+            FileSystemObjects = new List<FileSystemObject>()
             {
                 new Folder()
                 {
-                    name = "Dektop"
+                    Name = "Dektop"
                 },
                 documents,
                 new Folder()
                 {
-                    name = "Downloads"
+                    Name = "Downloads"
                 },
                 new File()
                 {
-                    name = "some image",
-                    type = "png"
+                    Name = "some image",
+                    FileType = "png"
                 }
             };
         }

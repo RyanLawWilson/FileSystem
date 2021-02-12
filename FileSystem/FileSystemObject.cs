@@ -8,19 +8,19 @@ namespace FileSystem
     {
         public FileSystemObject()
         {
-            created = DateTime.Now;
+            Created = DateTime.Now;
         }
 
         public FileSystemObject(string name)
         {
-            created = DateTime.Now;
-            this.name = name;
+            Created = DateTime.Now;
+            Name = name;
         }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public string size { get; set; }
+        public string Size { get; set; }
 
-        public DateTime created { get; set; }
+        public DateTime Created { get; set; }
     }
 }

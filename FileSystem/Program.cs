@@ -7,7 +7,7 @@ namespace FileSystem
 {
     class Program
     {
-        public static FileSystem sys = new FileSystem();
+        public static FileSystem Sys = new FileSystem();
 
         static void Main(string[] args)
         {
@@ -38,10 +38,10 @@ namespace FileSystem
                 if (wordStack == null || wordStack.Count == 0)
                 {
                     // Find the command from the list of commands in the FileSystem
-                    Command com = sys.commands.Find(c => c.command == wordStack.Pop());
+                    Command com = Sys.Commands.Find(c => c.CommandWord == wordStack.Pop());
 
                     if (com != null)
-                        com.Execute(sys, wordStack);
+                        com.Execute(Sys, wordStack);
                     else
                         Console.WriteLine("That is not a valid command");
                 }
@@ -61,7 +61,7 @@ namespace FileSystem
 
         static void pln(string s = "")
         {
-            Console.WriteLine($"{sys.activeFolder}> " + s);
+            Console.WriteLine($"{Sys.ActiveFolder}> " + s);
         }
 
         static void p(string s = "")
