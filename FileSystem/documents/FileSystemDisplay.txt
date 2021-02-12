@@ -4,12 +4,17 @@ Display the File System like so:
 File System
 ========================
 C:
-╠══ Documents
-║   ╠══ Folder1
-║   ║   ╠══ File1.jpg
-║   ║   ╚══ File2.png
-║   ╚══ File3.txt
-╚══ Desktop
+ ╠══ Documents
+ ║   ╠══ Folder1
+ ║   ║   ╠══ File1.jpg
+ ║   ║   ╚══ File2.png
+ ║   ╚══ File3.txt
+ ╚══ Desktop
+E:
+ ╠══ Downloads
+ ║   ╚══ Folder1
+ ║       ╚══ File1.jpg
+ ╚══ New Folder
 
 
 Alt 186: ║
