@@ -10,7 +10,7 @@ namespace FileSystem
         public Folder(string name) : base(name) { }
         public Folder(Folder prev) : base() { ParentFolder = prev; }
         public Folder(string name, Folder prev) : base(name) { ParentFolder = prev; }
-        public Folder(string name, Folder prev, List<FileSystemObject> objs) : this(name, prev)
+        public Folder(string name, List<FileSystemObject> objs) : this(name)
         {
             ContainedObjects = objs;
 
