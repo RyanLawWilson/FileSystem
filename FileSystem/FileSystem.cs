@@ -77,6 +77,20 @@ namespace FileSystem
                 }
             };
 
+
+
+
+            Folder school = new Folder("School");
+            Folder docs = new Folder("Documents", null, new List<FileSystemObject>()
+            {
+                new Folder("School"),
+                new Folder("Work")
+            });
+
+
+
+
+
             objects = new List<FileSystemObject>()
             {
                 new Folder()
