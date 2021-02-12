@@ -21,9 +21,9 @@ namespace FileSystem
         // The place where the command will be executed.
         public Folder ActiveFolder { get; set; }
 
-        
 
-        
+
+
 
         ///// <summary>
         ///// Execute the command that was typed in
@@ -61,55 +61,29 @@ namespace FileSystem
         /// </summary>
         private void InitFileSystem()
         {
-            Folder documents = new Folder("Documents");
-
-            ActiveFolder = documents;
-
-            documents.ContainedObjects = new List<FileSystemObject>()
+            Folder c_drive = new Folder("C:", new List<FileSystemObject>()
             {
-                new Folder()
+                new Folder("Documents", new List<FileSystemObject>()
                 {
-                    Name = "School",
-                    ParentFolder = documents
-                },
-                new Folder()
-                {
-                    Name = "Work",
-                    ParentFolder = documents
-                }
-            };
-
-
-
-
-            Folder school = new Folder("School");
-            Folder docs = new Folder("Documents", null, new List<FileSystemObject>()
-            {
-                new Folder("School"),
-                new Folder("Work")
+                    new Folder("School"),
+                    new Folder("Work")
+                }),
+                new Folder("Desktop", new List<FileSystemObject>() { 
+                    new File("cool_img", "jpg", "12 MB"),
+                    new File("stories", "txt"),
+                    new File("file"),
+                    new Folder("Resumes", new List<FileSystemObject>() { 
+                        new Folder("2020 Resumes"),
+                        new Folder("2021 Resumes")
+                    })
+                }),
+                new Folder("Downloads"),
+                new File("some image", "png")
             });
 
+            ActiveFolder = c_drive;
 
-
-
-
-            FileSystemObjects = new List<FileSystemObject>()
-            {
-                new Folder()
-                {
-                    Name = "Dektop"
-                },
-                documents,
-                new Folder()
-                {
-                    Name = "Downloads"
-                },
-                new File()
-                {
-                    Name = "some image",
-                    FileType = "png"
-                }
-            };
+            FileSystemObjects = new List<FileSystemObject>() { c_drive };
         }
     }
 }
