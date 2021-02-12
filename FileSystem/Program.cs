@@ -24,7 +24,7 @@ namespace FileSystem
             Folder f4 = new Folder("Folder 4", f3);
             Folder f5 = new Folder("Folder 5", f4);
 
-            f5.PrintBreadcrumb();
+            f5.Path();
 
 
             string input = Console.ReadLine();

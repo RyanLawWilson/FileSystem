@@ -25,19 +25,19 @@ namespace FileSystem
 
         public List<FileSystemObject> objects { get; set; }
 
-        public void PrintBreadcrumb()
+        public void Path()
         {
-            Console.WriteLine(GetBreadcrumb(this));
+            Console.WriteLine(CalculatePath(this));
         }
 
-        private StringBuilder GetBreadcrumb(Folder f)
+        private StringBuilder CalculatePath(Folder f)
         {
             StringBuilder sb = new StringBuilder("");
 
             if (f == null)
                 return sb;
 
-            return sb.Append(GetBreadcrumb(f.prevFolder) + f.name + " > ");
+            return sb.Append(CalculatePath(f.prevFolder) + f.name + " > ");
         }
     }
 }
