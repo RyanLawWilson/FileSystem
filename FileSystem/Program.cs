@@ -21,11 +21,22 @@ namespace FileSystem
             while (input != "exit" || input != "Exit")
             {
                 string[] words = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                Array.Reverse(words);
+                Stack<string> wordStack = new Stack<string>(words);
 
+                // If the input is valid, find the Command and if is a recognized command, execute it.
+                if (wordStack == null || wordStack.Count == 0)
+                {
+                    // Find the command from the list of commands in the FileSystem
+                    Command com = sys.commands.Find(c => c.command == wordStack.Pop());
 
+                    if (com != null)
+                        com.Execute(sys, wordStack);
+                    else
+                        Console.WriteLine("That is not a valid command");
+                }
 
-                sys.ExecuteCommand(words);
-
+                // Ready for next command
                 input = Console.ReadLine();
             }
 

@@ -5,11 +5,15 @@ using System.Text;
 
 namespace FileSystem
 {
-    class FileSystem
+    public class FileSystem
     {
-        public List<FileSystemObject> initialObjects { get; set; }
+        public List<FileSystemObject> objects { get; set; }
 
         public List<Command> commands { get; set; }
+
+        // The folder that you are currently looking in.  Any added or removed folders will be created/removed from this folder.
+        // The place where the command will be executed.
+        public Folder activeFolder { get; set; }
 
         public FileSystem()
         {
@@ -19,21 +23,28 @@ namespace FileSystem
 
         
 
+        ///// <summary>
+        ///// Execute the command that was typed in
+        ///// </summary>
+        ///// <param name="com"></param>
+        //public void ExecuteCommand(Stack<string> words = null)
+        //{
+        //    if (words == null || words.Count == 0)
+        //        return;
+
+        //    Command com = commands.Find(c => c.command == words.Pop());
+        //    if (com == null) return;
+
+        //    com.Execute(this, words);
+        //}
+
+
+
+
+
         /// <summary>
-        /// Execute the command that was typed in
+        /// Initialize the Commands for the File System.
         /// </summary>
-        /// <param name="com"></param>
-        public void ExecuteCommand(string[] words = null)
-        {
-            if (words == null || words.Length == 0)
-                return;
-        }
-
-
-
-
-
-
         private void InitCommands()
         {
             commands = new List<Command>()
@@ -43,9 +54,14 @@ namespace FileSystem
             };
         }
 
+        /// <summary>
+        /// Initialize the File System with several Files and Folders
+        /// </summary>
         private void InitFileSystem()
         {
             Folder documents = new Folder("Documents");
+
+            activeFolder = documents;
 
             documents.objects = new List<FileSystemObject>()
             {
@@ -61,7 +77,7 @@ namespace FileSystem
                 }
             };
 
-            initialObjects = new List<FileSystemObject>()
+            objects = new List<FileSystemObject>()
             {
                 new Folder()
                 {
