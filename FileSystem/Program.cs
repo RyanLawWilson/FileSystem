@@ -17,15 +17,7 @@ namespace FileSystem
             pln();
             pln("For a list of commands, type 'help'");
 
-
-            Folder f1 = new Folder("Folder 1");
-            Folder f2 = new Folder("Folder 2", f1);
-            Folder f3 = new Folder("Folder 3", f2);
-            Folder f4 = new Folder("Folder 4", f3);
-            Folder f5 = new Folder("Folder 5", f4);
-
-            f5.Path();
-
+            //TestPathImplementation();
 
             string input = Console.ReadLine();
             while (input != "exit" || input != "Exit")
@@ -67,6 +59,20 @@ namespace FileSystem
         static void p(string s = "")
         {
             Console.Write(">> ");
+        }
+
+        /// <summary>
+        /// For testing purposes.  Dipslay the path of a folder deep in the File System
+        /// </summary>
+        public static void TestPathImplementation()
+        {
+            Folder f1 = new Folder("Folder 1");
+            Folder f2 = new Folder("Folder 2", f1);
+            Folder f3 = new Folder("Folder 3", f2);
+            Folder f4 = new Folder("Folder 4", f3);
+            Folder f5 = new Folder("Folder 5", f4);
+
+            f5.Path();
         }
     }
 }
