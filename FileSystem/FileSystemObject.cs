@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FileSystem
 {
-    abstract class FileSystemObject
+    public abstract class FileSystemObject
     {
         public FileSystemObject()
         {
