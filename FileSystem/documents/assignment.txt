@@ -1,0 +1,12 @@
+Create a file system
+You can create folder with names
+You can create files with names inside of folders
+Have a delete function that deletes a folder and everything inside (Erase everything inside before deleting the folder)
+Get current file path.
+Create a console application to act as a terminal
+(Essentially mimic the command prompt)
+
+
+
+File object, Folder object
+Folder contain a List of Files and Folders
