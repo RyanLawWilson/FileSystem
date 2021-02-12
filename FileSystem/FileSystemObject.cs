@@ -11,6 +11,12 @@ namespace FileSystem
             created = DateTime.Now;
         }
 
+        public FileSystemObject(string name)
+        {
+            created = DateTime.Now;
+            this.name = name;
+        }
+
         public string name { get; set; }
 
         public string size { get; set; }

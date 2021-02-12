@@ -9,28 +9,7 @@ namespace FileSystem
     {
         static void Main(string[] args)
         {
-            FileSystem sys = new FileSystem() { 
-                initialObjects = new List<FileSystemObject>
-                {
-                    new Folder()
-                    {
-                        name = "Dektop"
-                    },
-                    new Folder()
-                    {
-                        name = "Documents"
-                    },
-                    new Folder()
-                    {
-                        name = "Downloads"
-                    },
-                    new File()
-                    {
-                        name = "some image",
-                        type = "png"
-                    }
-                }
-            };
+            FileSystem sys = new FileSystem();
 
             pln("Welcome to the file system");
             Thread.Sleep(1000);
@@ -45,7 +24,7 @@ namespace FileSystem
 
 
 
-                //sys.ExecuteCommand(input);
+                sys.ExecuteCommand(words);
 
                 input = Console.ReadLine();
             }

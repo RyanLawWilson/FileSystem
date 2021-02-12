@@ -14,7 +14,25 @@ namespace FileSystem
         public FileSystem()
         {
             InitCommands();
+            InitFileSystem();
         }
+
+        
+
+        /// <summary>
+        /// Execute the command that was typed in
+        /// </summary>
+        /// <param name="com"></param>
+        public void ExecuteCommand(string[] words = null)
+        {
+            if (words == null || words.Length == 0)
+                return;
+        }
+
+
+
+
+
 
         private void InitCommands()
         {
@@ -25,22 +43,41 @@ namespace FileSystem
             };
         }
 
-        /// <summary>
-        /// Execute the command that was typed in
-        /// </summary>
-        /// <param name="com"></param>
-        public void ExecuteCommand(FileSystem sys, string com = "")
+        private void InitFileSystem()
         {
-            if (sys == null)
-                return;
+            Folder documents = new Folder("Documents");
 
-            switch (com)
+            documents.objects = new List<FileSystemObject>()
             {
-                case "add":
-                    break;
-                case "rem":
-                    break;
-            }
+                new Folder()
+                {
+                    name = "School",
+                    prevFolder = documents
+                },
+                new Folder()
+                {
+                    name = "Work",
+                    prevFolder = documents
+                }
+            };
+
+            initialObjects = new List<FileSystemObject>()
+            {
+                new Folder()
+                {
+                    name = "Dektop"
+                },
+                documents,
+                new Folder()
+                {
+                    name = "Downloads"
+                },
+                new File()
+                {
+                    name = "some image",
+                    type = "png"
+                }
+            };
         }
     }
 }
