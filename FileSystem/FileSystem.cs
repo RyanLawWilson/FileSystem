@@ -11,7 +11,12 @@ namespace FileSystem
 
         public List<Command> commands { get; set; }
 
-        public void InitCommands()
+        public FileSystem()
+        {
+            InitCommands();
+        }
+
+        private void InitCommands()
         {
             commands = new List<Command>()
             {
@@ -24,24 +29,18 @@ namespace FileSystem
         /// Execute the command that was typed in
         /// </summary>
         /// <param name="com"></param>
-        public void ExecuteCommand(string com = "")
+        public void ExecuteCommand(FileSystem sys, string com = "")
         {
-            if (IsValidCommand(com))
+            if (sys == null)
                 return;
-        }
 
-        /// <summary>
-        /// Test to see if the command is recognized.
-        /// </summary>
-        /// <param name="com"></param>
-        /// <returns></returns>
-        private bool IsValidCommand(string com = "")
-        {
-            foreach (var c in commands)
-                if (c.command == com)
-                    return true;
-
-            return false;
+            switch (com)
+            {
+                case "add":
+                    break;
+                case "rem":
+                    break;
+            }
         }
     }
 }
