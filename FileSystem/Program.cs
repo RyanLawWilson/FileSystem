@@ -7,15 +7,25 @@ namespace FileSystem
 {
     class Program
     {
+        public static FileSystem sys = new FileSystem();
+
         static void Main(string[] args)
         {
-            FileSystem sys = new FileSystem();
-
             pln("Welcome to the file system");
             Thread.Sleep(1000);
 
             pln();
             pln("For a list of commands, type 'help'");
+
+
+            Folder f1 = new Folder("Folder 1");
+            Folder f2 = new Folder("Folder 2", f1);
+            Folder f3 = new Folder("Folder 3", f2);
+            Folder f4 = new Folder("Folder 4", f3);
+            Folder f5 = new Folder("Folder 5", f4);
+
+            f5.PrintBreadcrumb();
+
 
             string input = Console.ReadLine();
             while (input != "exit" || input != "Exit")
@@ -49,29 +59,9 @@ namespace FileSystem
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         static void pln(string s = "")
         {
-            Console.WriteLine(">> " + s);
+            Console.WriteLine($"{sys.activeFolder}> " + s);
         }
 
         static void p(string s = "")
