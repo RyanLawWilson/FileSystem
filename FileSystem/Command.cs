@@ -29,56 +29,13 @@ namespace FileSystem.Comms
             {
                 case "add":
                     bool addCommandSwitch = false;
-                    
+
+                    string fileSystemObjectName = words.Pop();
+
+
 
                     break;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-        static void Add()
-        {
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
