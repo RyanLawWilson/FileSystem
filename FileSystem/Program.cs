@@ -11,7 +11,7 @@ namespace FileSystem
 
         static void Main(string[] args)
         {
-
+            Console.ForegroundColor = ConsoleColor.White;
 
             //Sys.ActiveFolder.PrintContents();
 
