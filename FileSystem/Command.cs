@@ -106,6 +106,20 @@ namespace FileSystem.Comms
                     }
 
                     break;
+                case "help":
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.WriteLine("  Command | Name of Command | Description");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    foreach (Command com in sys.Commands)
+                    {
+                        Console.WriteLine($"{com.CommandWord} | {com.Name} | {com.Description}");
+                    }
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
             }
         }
     }
