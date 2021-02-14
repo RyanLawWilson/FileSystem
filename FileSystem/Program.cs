@@ -35,7 +35,8 @@ namespace FileSystem
                 if (wordStack != null && wordStack.Count != 0)
                 {
                     // Find the command from the list of commands in the FileSystem
-                    Command com = Sys.Commands.Find(c => c.CommandWord == wordStack.Pop());
+                    string firstWord = wordStack.Pop();
+                    Command com = Sys.Commands.Find(c => c.CommandWord == firstWord);
 
                     if (com != null)
                         com.Execute(Sys, wordStack);
