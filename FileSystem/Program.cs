@@ -13,19 +13,17 @@ namespace FileSystem
         {
 
 
-            Sys.ActiveFolder.PrintContents();
+            //Sys.ActiveFolder.PrintContents();
 
-
-
-
-            pln("Welcome to the file system");
+            WriteLine("Welcome to the file system");
             Thread.Sleep(1000);
 
-            pln();
-            pln("For a list of commands, type 'help'");
+            Console.WriteLine();
+            WriteLine("For a list of commands, type 'help'");
 
             //TestPathImplementation();
 
+            Write();
             string input = Console.ReadLine();
             while (input != "exit" || input != "Exit")
             {
@@ -34,7 +32,7 @@ namespace FileSystem
                 Stack<string> wordStack = new Stack<string>(words);
 
                 // If the input is valid, find the Command and if is a recognized command, execute it.
-                if (wordStack == null || wordStack.Count == 0)
+                if (wordStack != null && wordStack.Count != 0)
                 {
                     // Find the command from the list of commands in the FileSystem
                     Command com = Sys.Commands.Find(c => c.CommandWord == wordStack.Pop());
@@ -46,6 +44,7 @@ namespace FileSystem
                 }
 
                 // Ready for next command
+                Write();
                 input = Console.ReadLine();
             }
 
@@ -54,23 +53,14 @@ namespace FileSystem
 
 
 
-
-
-
-
-        static void pln(string s = "")
-        {
-            Console.WriteLine($"{Sys.ActiveFolder}> " + s);
-        }
-
-        static void p(string s = "")
-        {
-            Console.Write(">> ");
-        }
-
-        public static void WriteLine(string s)
+        public static void WriteLine(string s = "")
         {
             Console.WriteLine(Sys.ActiveFolder.Path() + " " + s);
+        }
+
+        public static void Write(string s = "")
+        {
+            Console.Write(Sys.ActiveFolder.Path() + " " + s);
         }
 
         /// <summary>
