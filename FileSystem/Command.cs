@@ -65,8 +65,10 @@ namespace FileSystem.Comms
                 case "cd":
                     if (words.Count == 0)
                     {
-                        //throw someException;
-                        //break;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\n  Incorrect syntax.  Type 'help cd' for valid syntax\n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
                     }
 
                     string folderToFind = words.Pop();
@@ -107,6 +109,19 @@ namespace FileSystem.Comms
                         Console.ForegroundColor = ConsoleColor.White;
                     }
 
+                    break;
+                case "ren":
+                    if (words.Count >= 0 || words.Count < 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\n  Incorrect syntax.  Type 'help ren' for valid syntax\n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                    }
+
+                    string objectToRename = words.Pop();
+
+                    string newName = words.Pop();
                     break;
                 case "help":
                     if (words.Count == 0)
@@ -174,6 +189,18 @@ namespace FileSystem.Comms
                             Console.WriteLine("  Move back one folder from the active folder:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("    cd b");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine();
+                            break;
+                        case "ren":
+                            Console.WriteLine();
+                            Console.WriteLine("  Rename a folder located in the active folder:");
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine("    ren [folder_name] [new_folder_name]");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("  Rename a file located in the active folder:");
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine("    ren [file_name].[file_type] [new_file_name]");
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine();
                             break;
