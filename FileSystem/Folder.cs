@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace FileSystem
 {
@@ -25,9 +26,12 @@ namespace FileSystem
 
         public List<FileSystemObject> ContainedObjects { get; set; }
 
-        public void Path()
+        /// <summary>
+        /// Return a string representing this Folders file path
+        /// </summary>
+        public string Path()
         {
-            Console.WriteLine(CalculatePath(this));
+            return CalculatePath(this).ToString();
         }
 
         private StringBuilder CalculatePath(Folder f)
@@ -38,6 +42,43 @@ namespace FileSystem
                 return sb;
 
             return sb.Append(CalculatePath(f.ParentFolder) + f.Name + " > ");
+        }
+
+        /// <summary>
+        /// Prints all of the contents of the folder
+        /// </summary>
+        public void PrintContents(bool SortByNameAscending = true)
+        {
+            //List<FileSystemObject> folders = new List<FileSystemObject>(ContainedObjects.Where(obj => obj is Folder));
+            //List<FileSystemObject> files = new List<FileSystemObject>(ContainedObjects.Where(obj => obj is File));
+            List<FileSystemObject> objs = new List<FileSystemObject>(ContainedObjects);
+
+            //if (ShowFilesFirst)
+            //{
+            //    // Code that I found on https://stackoverflow.com/questions/3874853/how-to-sort-a-collection-based-on-type-in-linq
+            //    // that sorts types.  This code sorts the collection so that Folders are first.
+            //    objs.Sort((folder, file) =>
+            //    {
+            //        bool folderType = folder.GetType() == typeof(Folder);
+            //        bool fileType = file.GetType() == typeof(Folder);
+            //        return fileType.CompareTo(folderType);
+            //    });
+            //}
+
+            if (SortByNameAscending)
+            {
+                objs.OrderBy(obj => obj.Name);
+            }
+
+            foreach (var obj in objs)
+            {
+                if (obj is File f)
+                    Console.WriteLine("  " + obj.Name + "." + f.FileType);
+                else
+                    Console.WriteLine("  " + obj.Name);
+            }
+
+            Console.WriteLine();
         }
     }
 }

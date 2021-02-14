@@ -11,6 +11,13 @@ namespace FileSystem
 
         static void Main(string[] args)
         {
+
+
+            Sys.ActiveFolder.PrintContents();
+
+
+
+
             pln("Welcome to the file system");
             Thread.Sleep(1000);
 
@@ -59,6 +66,11 @@ namespace FileSystem
         static void p(string s = "")
         {
             Console.Write(">> ");
+        }
+
+        public static void WriteLine(string s)
+        {
+            Console.WriteLine(Sys.ActiveFolder.Path() + " " + s);
         }
 
         /// <summary>
