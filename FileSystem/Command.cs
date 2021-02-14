@@ -71,14 +71,38 @@ namespace FileSystem.Comms
 
                     string folderToFind = words.Pop();
                     // Find the folder we are looking for in the active folder's object list.
-                    Folder foundFolder = (Folder)sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj is Folder && obj.Name == folderToFind);
-                    if (foundFolder != null)
+                    Folder foundFolderToChangeTo = (Folder)sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj is Folder && obj.Name == folderToFind);
+                    if (foundFolderToChangeTo != null)
                     {
-                        sys.ActiveFolder = foundFolder;
+                        sys.ActiveFolder = foundFolderToChangeTo;
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"\n  Could not find folder with name \"{folderToFind}\"\n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+
+                    break;
+                case "r":
+                    if (words.Count == 0)
+                    {
                         //throw someException;
+                        //break;
+                    }
+
+                    string objectToDelete = words.Pop();
+
+                    Folder foundObjectToDelete = (Folder)sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj.Name == objectToDelete);
+                    if (foundObjectToDelete != null)
+                    {
+                        sys.ActiveFolder.ContainedObjects.Remove(foundObjectToDelete);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"\n  Could not find folder or file with name \"{objectToDelete}\"\n");
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
 
                     break;
