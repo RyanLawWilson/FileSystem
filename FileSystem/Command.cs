@@ -111,7 +111,7 @@ namespace FileSystem.Comms
 
                     break;
                 case "ren":
-                    if (words.Count >= 0 || words.Count < 2)
+                    if (words.Count >= 0 && words.Count < 2)
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine($"\n  Incorrect syntax.  Type 'help ren' for valid syntax\n");
@@ -120,8 +120,24 @@ namespace FileSystem.Comms
                     }
 
                     string objectToRename = words.Pop();
-
                     string newName = words.Pop();
+                    string[] fileNameAndType = objectToRename.Split('.');
+                    if (fileNameAndType.Length > 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\n  Invalid file.  Multiple '.' found\n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                    }
+                    else if (fileNameAndType.Length == 2)
+                    {
+                        sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj.Name == fileNameAndType[0]).Name = newName;
+                    }
+                    else
+                    {
+                        sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj.Name == objectToRename).Name = newName;
+                    }
+
                     break;
                 case "help":
                     if (words.Count == 0)
