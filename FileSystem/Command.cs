@@ -59,7 +59,7 @@ namespace FileSystem.Comms
 
                     break;
                 case "dir":
-                    Console.WriteLine("\n" + sys.ActiveFolder.Path());
+                    sys.ActiveFolder.PrintContents();
                     break;
             }
         }

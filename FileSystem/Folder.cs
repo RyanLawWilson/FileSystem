@@ -70,6 +70,8 @@ namespace FileSystem
                 objs.OrderBy(obj => obj.Name);
             }
 
+            Console.WriteLine();
+
             foreach (var obj in objs)
             {
                 if (obj is File f)
