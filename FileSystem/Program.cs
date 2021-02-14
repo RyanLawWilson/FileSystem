@@ -41,7 +41,11 @@ namespace FileSystem
                     if (com != null)
                         com.Execute(Sys, wordStack);
                     else
-                        Console.WriteLine("That is not a valid command");
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("\n  Command not recognized\n  For a list of commands, type 'help'\n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                 }
 
                 // Ready for next command
