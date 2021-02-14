@@ -51,6 +51,14 @@ namespace FileSystem
         {
             //List<FileSystemObject> folders = new List<FileSystemObject>(ContainedObjects.Where(obj => obj is Folder));
             //List<FileSystemObject> files = new List<FileSystemObject>(ContainedObjects.Where(obj => obj is File));
+            if (ContainedObjects == null || ContainedObjects.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\n  This folder is empty\n");
+                Console.ForegroundColor = ConsoleColor.White;
+                return;
+            }
+
             List<FileSystemObject> objs = new List<FileSystemObject>(ContainedObjects);
 
             //if (ShowFilesFirst)
