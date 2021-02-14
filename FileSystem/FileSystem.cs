@@ -77,6 +77,7 @@ namespace FileSystem
                         new Folder("2021 Resumes")
                     })
                 }),
+                new File("todolist", "txt"),
                 new Folder("Downloads"),
                 new File("some image", "png")
             });
@@ -84,6 +85,27 @@ namespace FileSystem
             ActiveFolder = c_drive;
 
             FileSystemObjects = new List<FileSystemObject>() { c_drive };
+        }
+
+
+        public void Print()
+        {
+            string printString = "";
+            foreach (var obj in FileSystemObjects)
+                if (obj is Folder f)
+                    printString += CalculatePrintString(f);
+        }
+
+        private string CalculatePrintString(Folder f, int depth = 0)
+        {
+            //if (f == null)
+            //    return 
+            //string s = "";
+
+
+
+
+            return null;
         }
     }
 }
