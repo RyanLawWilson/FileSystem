@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FileSystem.Comms
@@ -22,7 +23,7 @@ namespace FileSystem.Comms
         // A short description of the Command.  Ex: Creates a new file or folder
         public string Description { get; set; }
 
-        
+
         public void Execute(FileSystem sys, Stack<string> words)
         {
             switch (CommandWord)
@@ -60,6 +61,26 @@ namespace FileSystem.Comms
                     break;
                 case "dir":
                     sys.ActiveFolder.PrintContents();
+                    break;
+                case "cd":
+                    if (words.Count == 0)
+                    {
+                        //throw someException;
+                        //break;
+                    }
+
+                    string folderToFind = words.Pop();
+                    // Find the folder we are looking for in the active folder's object list.
+                    Folder foundFolder = (Folder)sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj is Folder && obj.Name == folderToFind);
+                    if (foundFolder != null)
+                    {
+                        sys.ActiveFolder = foundFolder;
+                    }
+                    else
+                    {
+                        //throw someException;
+                    }
+
                     break;
             }
         }
