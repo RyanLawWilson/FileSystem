@@ -133,11 +133,11 @@ namespace FileSystem.Comms
                     {
                         case "add":
                             Console.WriteLine();
-                            Console.WriteLine("  Add a folder:");
+                            Console.WriteLine("  Add a folder in the active folder:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("    add [folder_name]");
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("  Add a file:");
+                            Console.WriteLine("  Add a file in the active folder:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("    add [file_name].[file_type]");
                             Console.ForegroundColor = ConsoleColor.White;
@@ -145,49 +145,45 @@ namespace FileSystem.Comms
                             break;
                         case "r":
                             Console.WriteLine();
-                            Console.WriteLine("  Add a folder:");
+                            Console.WriteLine("  Remove a folder in the active folder:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [folder_name]");
+                            Console.WriteLine("    r [folder_name]");
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("  Add a file:");
+                            Console.WriteLine("  Remove a file in the active folder:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [file_name].[file_type]");
+                            Console.WriteLine("    r [file_name].[file_type]");
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine();
                             break;
                         case "dir":
                             Console.WriteLine();
-                            Console.WriteLine("  Add a folder:");
+                            Console.WriteLine("  Look at the contents of the active folder:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [folder_name]");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("  Add a file:");
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [file_name].[file_type]");
+                            Console.WriteLine("    dir");
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine();
                             break;
                         case "cd":
                             Console.WriteLine();
-                            Console.WriteLine("  Add a folder:");
+                            Console.WriteLine("  Change to a folder that is located in the active folder");
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [folder_name]");
+                            Console.WriteLine("    cd [folder_name]");
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("  Add a file:");
+                            Console.WriteLine("  Move back one folder from the active folder:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [file_name].[file_type]");
+                            Console.WriteLine("    cd b");
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine();
                             break;
                         case "help":
                             Console.WriteLine();
-                            Console.WriteLine("  Add a folder:");
+                            Console.WriteLine("  Display a list of all commands:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [folder_name]");
+                            Console.WriteLine("    help");
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("  Add a file:");
+                            Console.WriteLine("  Display the syntax of a specific command:");
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("    add [file_name].[file_type]");
+                            Console.WriteLine("    help [command]");
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine();
                             break;
