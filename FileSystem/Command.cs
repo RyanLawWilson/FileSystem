@@ -87,8 +87,10 @@ namespace FileSystem.Comms
                 case "r":
                     if (words.Count == 0)
                     {
-                        //throw someException;
-                        //break;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\n  Incorrect syntax.  Type 'help r' for valid syntax\n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
                     }
 
                     string objectToDelete = words.Pop();
