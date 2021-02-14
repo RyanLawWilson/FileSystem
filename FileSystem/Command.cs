@@ -72,6 +72,23 @@ namespace FileSystem.Comms
                     }
 
                     string folderToFind = words.Pop();
+                    // Go back implementation
+                    if (folderToFind == "..")
+                    {
+                        if (sys.ActiveFolder.ParentFolder == null)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"\n  {sys.ActiveFolder.Name} does not have a parent folder.\n");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        else
+                        {
+                            sys.ActiveFolder = sys.ActiveFolder.ParentFolder;
+                        }
+
+                        break;
+                    }
+
                     // Find the folder we are looking for in the active folder's object list.
                     Folder foundFolderToChangeTo = (Folder)sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj is Folder && obj.Name == folderToFind);
                     if (foundFolderToChangeTo != null)
