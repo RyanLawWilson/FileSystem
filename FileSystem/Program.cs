@@ -15,17 +15,16 @@ namespace FileSystem
 
             //Sys.ActiveFolder.PrintContents();
 
-            WriteLine("Welcome to the file system");
+            Console.WriteLine("Welcome to the file system");
             Thread.Sleep(1000);
 
-            Console.WriteLine();
-            WriteLine("For a list of commands, type 'help'");
+            Console.WriteLine("\nFor a list of commands, type 'help'\n");
 
             //TestPathImplementation();
 
             Write();
             string input = Console.ReadLine();
-            while (input != "exit" || input != "Exit")
+            while (input != "exit" && input != "Exit")
             {
                 string[] words = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 Array.Reverse(words);
@@ -53,6 +52,7 @@ namespace FileSystem
                 input = Console.ReadLine();
             }
 
+            Console.WriteLine("Thanks for running the program!");
             Console.Read();
         }
 
