@@ -75,16 +75,11 @@ namespace FileSystem.Comms
                     // Go back implementation
                     if (folderToFind == "..")
                     {
+                        // If folder is a root folder, print an error, otherwise, change ActiveFolder to ActiveFolder's Parent folder.
                         if (sys.ActiveFolder.ParentFolder == null)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine($"\n  {sys.ActiveFolder.Name} does not have a parent folder.\n");
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
+                            Program.WriteError($"\n  {sys.ActiveFolder.Name} does not have a parent folder.\n", ConsoleColor.Red);
                         else
-                        {
                             sys.ActiveFolder = sys.ActiveFolder.ParentFolder;
-                        }
 
                         break;
                     }
