@@ -41,11 +41,7 @@ namespace FileSystem
                     if (com != null)
                         com.Execute(Sys, wordStack);
                     else
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("\n  Command not recognized\n  For a list of commands, type 'help'\n");
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
+                        WriteError("\n  Command not recognized\n  For a list of commands, type 'help'\n", ConsoleColor.DarkYellow);
                 }
 
                 // Ready for next command
@@ -67,6 +63,18 @@ namespace FileSystem
         public static void Write(string s = "")
         {
             Console.Write(Sys.ActiveFolder.Path() + " " + s);
+        }
+
+        /// <summary>
+        /// Helper method to print errors to the Console.  Can change Console foreground color.
+        /// </summary>
+        /// <param name="text">Text you want to display.</param>
+        /// <param name="color">ConsoleColor that you want to color your text.</param>
+        public static void WriteError(string text, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         /// <summary>
