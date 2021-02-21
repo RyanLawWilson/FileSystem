@@ -22,18 +22,28 @@ namespace FileSystem
 
         }
 
+
+
+        // Allows Folders to navigate to their parent Folder.
         public Folder ParentFolder { get; set; }
 
         public List<FileSystemObject> ContainedObjects { get; set; }
 
+
+
         /// <summary>
-        /// Return a string representing this Folders file path
+        /// Return a string representing this Folders file path.
         /// </summary>
         public string Path()
         {
             return CalculatePath(this).ToString();
         }
 
+        /// <summary>
+        /// Recursive method to calculate the Folder path.
+        /// </summary>
+        /// <param name="f">The Folder you want to find the path of.</param>
+        /// <returns>StringBuilder object which contains the path.</returns>
         private StringBuilder CalculatePath(Folder f)
         {
             StringBuilder sb = new StringBuilder("");
@@ -45,7 +55,7 @@ namespace FileSystem
         }
 
         /// <summary>
-        /// Prints all of the contents of the folder
+        /// Prints all of the contents of the folder.  Used
         /// </summary>
         public void PrintContents(bool SortByNameAscending = true)
         {
