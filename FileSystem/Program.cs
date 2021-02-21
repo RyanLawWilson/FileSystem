@@ -37,6 +37,7 @@ namespace FileSystem
                     string firstWord = wordStack.Pop();
                     Command com = Sys.Commands.Find(c => c.CommandWord == firstWord);
 
+                    // If valid Command, execute, otherwise, print error message.
                     if (com != null)
                         com.Execute(Sys, wordStack);
                     else
