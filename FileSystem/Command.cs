@@ -65,9 +65,7 @@ namespace FileSystem.Comms
                 case "cd":
                     if (words.Count == 0)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"\n  Incorrect syntax.  Type 'help cd' for valid syntax\n");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Program.WriteError($"\n  Incorrect syntax.  Type 'help cd' for valid syntax\n", ConsoleColor.Yellow);
                         break;
                     }
 
@@ -87,47 +85,32 @@ namespace FileSystem.Comms
                     // Find the folder we are looking for in the active folder's object list.
                     Folder foundFolderToChangeTo = (Folder)sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj is Folder && obj.Name == folderToFind);
                     if (foundFolderToChangeTo != null)
-                    {
                         sys.ActiveFolder = foundFolderToChangeTo;
-                    }
                     else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"\n  Could not find folder with name \"{folderToFind}\"\n");
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
+                        Program.WriteError($"\n  Could not find folder with name \"{folderToFind}\"\n", ConsoleColor.Red);
 
                     break;
                 case "r":
                     if (words.Count == 0)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"\n  Incorrect syntax.  Type 'help r' for valid syntax\n");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Program.WriteError($"\n  Incorrect syntax.  Type 'help r' for valid syntax\n", ConsoleColor.Yellow);
                         break;
                     }
 
                     string objectToDelete = words.Pop();
 
+                    // Find a folder and remove it, otherwise, print an error.
                     Folder foundObjectToDelete = (Folder)sys.ActiveFolder.ContainedObjects.FirstOrDefault(obj => obj.Name == objectToDelete);
                     if (foundObjectToDelete != null)
-                    {
                         sys.ActiveFolder.ContainedObjects.Remove(foundObjectToDelete);
-                    }
                     else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"\n  Could not find folder or file with name \"{objectToDelete}\"\n");
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
+                        Program.WriteError($"\n  Could not find folder or file with name \"{objectToDelete}\"\n", ConsoleColor.Red);
 
                     break;
                 case "ren":
                     if (words.Count >= 0 && words.Count < 2)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"\n  Incorrect syntax.  Type 'help ren' for valid syntax\n");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Program.WriteError($"\n  Incorrect syntax.  Type 'help ren' for valid syntax\n", ConsoleColor.Yellow);
                         break;
                     }
 
@@ -136,9 +119,7 @@ namespace FileSystem.Comms
                     string[] fileNameAndType = objectToRename.Split('.');
                     if (fileNameAndType.Length > 2)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"\n  Invalid file.  Multiple '.' found\n");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Program.WriteError($"\n  Invalid file.  Multiple '.' found\n", ConsoleColor.Yellow);
                         break;
                     }
                     else if (fileNameAndType.Length == 2)
