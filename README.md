@@ -13,9 +13,9 @@ This project is a C# Console Application that simulates a File System.  Users ca
 
 <div align="center">
 
-| **<div align="center">Technologies Used</div>** |
+| **<div align="center">Technologies/Skills Used</div>** |
 | --- |
-| **Python • Django • API • JSON • SQL • HTML • CSS • JavaScript • Azure DevOps • Git • PyCharm** |
+| **C# • OOP • UML • Recursion • Data Structures** |
 
 </div>
 
