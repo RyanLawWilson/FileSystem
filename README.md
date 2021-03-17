@@ -23,4 +23,39 @@ This project is a C# Console Application that simulates a File System.  Users ca
 *UML class diagram*
 <img src="./FileSystem/documents/class_diagram.png" name="uml-class-diagram">
 
-## <p align="center">File System Object
+## **<p align="center">File System Object</p>**
+
+
+
+
+
+
+## **<p align="center" name="folder">Folder</p>**
+*Properties*<br>
+`ParentFolder` ► The Folder object whose ContainedObject List contains this Folder.<br>
+`ContainedObject` ► List of File System Objects that are in the folder.<br><br>
+Calling the Path method uses a recursive CalculatePath method to get the Folder path of the current folder (usually the ActiveFolder).  The CalculatePath method constructs a StringBuilder of the path by traversing to the root folder one iteration at a time (by using the Folder's ParentFolder property) and returning the desired StringBuilder as the recursive method calls get removed from the call stack.
+```csharp
+/// <summary>
+/// Return a string representing this Folders file path.
+/// </summary>
+public string Path()
+{
+    return CalculatePath(this).ToString();
+}
+
+/// <summary>
+/// Recursive method to calculate the Folder path.
+/// </summary>
+/// <param name="f">The Folder you want to find the path of.</param>
+/// <returns>StringBuilder object which contains the path.</returns>
+private StringBuilder CalculatePath(Folder f)
+{
+    StringBuilder sb = new StringBuilder("");
+
+    if (f == null)
+        return sb;
+
+    return sb.Append(CalculatePath(f.ParentFolder) + f.Name + " > ");
+}
+```
