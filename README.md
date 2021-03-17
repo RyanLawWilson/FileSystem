@@ -32,9 +32,9 @@ This project is a C# Console Application that simulates a File System.  Users ca
 
 ## **<p align="center" name="folder">Folder</p>**
 *Properties*<br>
-`ParentFolder` ► The Folder object whose ContainedObject List contains this Folder.<br>
-`ContainedObject` ► List of File System Objects that are in the folder.<br><br>
-Calling the Path method uses a recursive CalculatePath method to get the Folder path of the current folder (usually the ActiveFolder).  The CalculatePath method constructs a StringBuilder of the path by traversing to the root folder one iteration at a time (by using the Folder's ParentFolder property) and returning the desired StringBuilder as the recursive method calls get removed from the call stack.
+<span name="test">`ParentFolder`</span> → The Folder object whose ContainedObjects List contains this Folder.<br>
+`ContainedObjects` → List of File System Objects that are in the folder.<br><br>
+Calling the `Path` method uses a recursive `CalculatePath` method to get the Folder path of the current folder (usually the [ActiveFolder](#test)).  The CalculatePath method constructs a StringBuilder of the path by traversing to the root folder one iteration at a time (by using the Folder's ParentFolder property) and returning the desired StringBuilder as the recursive method calls get removed from the call stack.
 ```csharp
 /// <summary>
 /// Return a string representing this Folders file path.
