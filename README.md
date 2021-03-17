@@ -4,8 +4,8 @@ This project is a C# Console Application that simulates a File System.  Users ca
 
 <div align="center" width="300px">
 
-*contents*
-
+<span>*contents*</span>
+<br>
 **[UML class Diagram](#uml-class-diagram) • [Program](#Program) • [File System](#file-system) • [Command](#command) • [File System Object](#fso) • [File](#file) • [Folder](#folder)**
 
 </div>
