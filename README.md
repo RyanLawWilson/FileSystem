@@ -25,11 +25,11 @@ This project is a C# Console Application that simulates a File System.  Users ca
 
 ## **<p align="center" name="command">Command</p>**
 *Properties*<br>
-`CommandWord` → The Folder object whose ContainedObjects List contains this Folder.<br>
-`Name` → List of File System Objects that are in the folder.<br>
-`Description` → List of File System Objects that are in the folder.<br>
+`CommandWord` → The text that the user needs to type into the console to use this command<br>
+`Name` → The human-readable name of the command<br>
+`Description` → Short description of what the Command does.<br>
 
-lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.  lorem ipsum.
+The Command class is responsible for performing operations on the File System.  The input from the user is sent to the Execute command as a Stack of strings.  Each string is the stack will do different things to the file system depending on the Execute Function.  For example, if the user wants to change directories, the Stack of strings will consist of one string: folder that the user is trying to get to.  If there are an unexpected number of strings in the Stack, an error is displayed to the console instead.
 
 ```csharp
 public void Execute(FileSystem sys, Stack<string> words)
